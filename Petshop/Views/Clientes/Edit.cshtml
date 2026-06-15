@@ -1,0 +1,60 @@
+@model Petshop.Models.Cliente
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<h1 class="h3 mb-4">Editar Cliente</h1>
+
+<form asp-action="Edit" method="post" class="row g-3">
+    <input asp-for="Id" type="hidden" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="col-md-6">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="CPF" class="form-label"></label>
+        <input asp-for="CPF" class="form-control" inputmode="numeric" maxlength="11" pattern="[0-9]{11}" data-cpf-input="true" />
+        <span asp-validation-for="CPF" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Telefone" class="form-label"></label>
+        <input asp-for="Telefone" class="form-control" />
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Ativo" class="form-label"></label>
+        <select asp-for="Ativo" class="form-select">
+            <option value="true">Ativo</option>
+            <option value="false">Desativado</option>
+        </select>
+        <span asp-validation-for="Ativo" class="text-danger"></span>
+    </div>
+
+    <div class="col-12 d-flex flex-wrap gap-2">
+        <button type="submit" class="btn btn-primary">Salvar alterações</button>
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+    </div>
+</form>
+
+<form asp-action="Delete" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este cliente? Todos os pets vinculados também serão removidos.');" class="mt-3">
+    @Html.AntiForgeryToken()
+    <input asp-for="Id" type="hidden" />
+    <button type="submit" class="btn btn-danger">Excluir cliente</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

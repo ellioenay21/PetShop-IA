@@ -1,0 +1,28 @@
+@model Petshop.Models.Pet
+
+@{
+    ViewData["Title"] = "Excluir Pet";
+}
+
+<h1 class="h3 mb-4">Excluir Pet</h1>
+
+<div class="alert alert-warning">
+    Confirme a exclusão de <strong>@Model.Nome</strong>.
+</div>
+
+<dl class="row">
+    <dt class="col-sm-2">Espécie</dt>
+    <dd class="col-sm-10">@Model.Especie</dd>
+
+    <dt class="col-sm-2">Raça</dt>
+    <dd class="col-sm-10">@Model.Raca</dd>
+
+    <dt class="col-sm-2">Idade</dt>
+    <dd class="col-sm-10">@Model.Idade</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input asp-for="Id" type="hidden" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

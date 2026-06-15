@@ -1,0 +1,48 @@
+@model Petshop.Models.Cliente
+
+@{
+    ViewData["Title"] = "Consulta do Cliente";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="h3 mb-0">@Model.Nome</h1>
+        <p class="text-muted mb-0">CPF @Model.CPF - @(Model.Ativo ? "Ativo" : "Desativado")</p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="mb-1"><strong>Email:</strong> @Model.Email</p>
+        <p class="mb-1"><strong>Telefone:</strong> @Model.Telefone</p>
+        <a class="btn btn-primary" asp-controller="Pets" asp-action="Create" asp-route-clienteId="@Model.Id">Novo Pet para este cliente</a>
+    </div>
+</div>
+
+<h2 class="h4">Pets vinculados</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Espécie</th>
+                <th>Raça</th>
+                <th>Idade</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model.Pets)
+            {
+                <tr>
+                    <td>@pet.Nome</td>
+                    <td>@pet.Especie</td>
+                    <td>@pet.Raca</td>
+                    <td>@pet.Idade</td>
+                    <td>@(pet.Ativo ? "Ativo" : "Desativado")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
