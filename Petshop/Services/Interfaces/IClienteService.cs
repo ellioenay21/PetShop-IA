@@ -6,6 +6,7 @@ public interface IClienteService
 {
     Task<List<Cliente>> GetAllAsync();
     Task<Cliente?> GetByIdAsync(int id);
+    Task<Cliente?> GetByCpfAsync(string cpf);
     Task<List<Cliente>> GetActiveAsync();
     Task CreateAsync(Cliente cliente);
     Task UpdateAsync(Cliente cliente);

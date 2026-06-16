@@ -34,6 +34,11 @@ public class ClienteService : IClienteService
         return _clienteRepository.GetByIdAsync(id);
     }
 
+    public Task<Cliente?> GetByCpfAsync(string cpf)
+    {
+        return _clienteRepository.GetByCpfAsync(cpf);
+    }
+
     public async Task CreateAsync(Cliente cliente)
     {
         cliente.CPF = new string(cliente.CPF.Where(char.IsDigit).ToArray());

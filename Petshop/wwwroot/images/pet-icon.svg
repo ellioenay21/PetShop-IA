@@ -1,0 +1,11 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="petGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#petGrad)"/>
+  <path d="M76 42c6 0 10-5 8-11-2-6-9-8-15-6-3 1-5 3-6 5-2-2-4-4-7-5-6-2-13 0-15 6-2 6 2 11 8 11 0 7 5 14 14 14s14-7 14-14Z" fill="#fff"/>
+  <path d="M54 78c0 7 5 12 12 12s12-5 12-12v-4H54v4Z" fill="#fff" opacity="0.9"/>
+</svg>

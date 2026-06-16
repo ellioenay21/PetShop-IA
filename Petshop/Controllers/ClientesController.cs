@@ -21,6 +21,30 @@ public class ClientesController : Controller
         return View(clientes);
     }
 
+    public IActionResult Search()
+    {
+        return View(new ClienteSearchViewModel());
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Search(ClienteSearchViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        var cliente = await _clienteService.GetByCpfAsync(model.CPF);
+        if (cliente is null)
+        {
+            ModelState.AddModelError(nameof(model.CPF), "Cliente não encontrado para o CPF informado.");
+            return View(model);
+        }
+
+        return View("Details", cliente);
+    }
+
     public IActionResult Create()
     {
         return View(new Cliente { Ativo = true });

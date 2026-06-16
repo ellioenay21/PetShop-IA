@@ -42,7 +42,10 @@ public class ClienteRepository : IClienteRepository
     public async Task<Cliente?> GetByCpfAsync(string cpf)
     {
         var digits = new string(cpf.Where(char.IsDigit).ToArray());
-        return await _context.Clientes.FirstOrDefaultAsync(c => c.CPF == digits);
+        return await _context.Clientes
+            .Include(c => c.Pets)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(c => c.CPF == digits);
     }
 
     public async Task AddAsync(Cliente cliente)

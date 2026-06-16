@@ -23,14 +23,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="Index">Pets</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastro</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Clientes" asp-action="Create">Cadastro Cliente</a></li>
+                                <li><a class="dropdown-item" asp-controller="Pets" asp-action="Create">Cadastro Pet</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lista</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+                                <li><a class="dropdown-item" asp-controller="Pets" asp-action="Index">Pets</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Create">Novo Cliente</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Search">Busca</a>
                         </li>
                     </ul>
                 </div>
